@@ -33,7 +33,7 @@
                                       
                 @foreach(App\Comment::all() as $comment)
                     <div class="col-lg-12">
-                            <small>By {!! $comment->user->name !!} </small>
+                            <small>By {!! $comment->user->fullName() !!} </small>
                         </h2>
                     </div>
                     <div class="col-lg-12">

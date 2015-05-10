@@ -20,6 +20,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 Route::get('article','HomeController@article');
+Route::get('edit_user','UsersController@edit');
+Route::get('consult_user','UsersController@consult');
 Route::get('article', 'CommentController@getInfos');
 Route::post('article', 
   ['as' => 'article_store', 'uses' => 'CommentController@postInfos']);
+Route::post('edit_user', array('uses' => 'UsersController@edit'));
+Route::post('edit_Complete', array('uses' => 'UsersController@editComplete'));

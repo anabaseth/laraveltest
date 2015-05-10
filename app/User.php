@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password'];
+	protected $fillable = ['name','last_name','activity', 'email', 'password'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -30,5 +30,30 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+        
+        public function fullName(){
+            return ($this->name).' '.($this->last_name);            
+        }
+        public function enterpriseName(){
+            if($this->enterprise()==NULL){
+                return '';
+            }
+            return $this->enterprise->name;
+        }
+        public function enterpriseAdress(){
+            if($this->enterprise()==NULL){
+                return '';
+            }
+            return $this->enterprise->adress;
+        }
+        public function enterprise()
+        {
+            $enterprise= $this->hasOne('App\enterprise');            
+            if($enterprise==NULL){
+                $enterprise=new enterprise();    
+                $enterprise->user_id=$user->id;
+            }
+            return $enterprise;
+        }
 
 }

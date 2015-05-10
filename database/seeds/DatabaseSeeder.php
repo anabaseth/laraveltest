@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('UserTableSeeder');
                 
                 $users=array(
-                    ['id' => 1,'name' => 'name', 'email' =>'name@mail.com','password' =>'','created_at' => new DateTime, 'updated_at' => new DateTime],
-                    ['id' => 2,'name' => 'machin', 'email' =>'machin@mail.com','password' =>'','created_at' => new DateTime, 'updated_at' => new DateTime]
+                    ['id' => 1,'name' => 'name','activity'=>'activité bidon', 'email' =>'name@mail.com','password' =>'$2y$10$mssIaujRh4QWQ1YLrvRBk.5Kf5U8hgvOR2pzq1KLliAtuPeeS11GK','created_at' => new DateTime, 'updated_at' => new DateTime],
+                    ['id' => 2,'name' => 'machin','activity'=>'activité bidon', 'email' =>'machin@mail.com','password' =>'$2y$10$mssIaujRh4QWQ1YLrvRBk.5Kf5U8hgvOR2pzq1KLliAtuPeeS11GK','created_at' => new DateTime, 'updated_at' => new DateTime]
                 );
                 DB::table('users')->insert($users);
                 
