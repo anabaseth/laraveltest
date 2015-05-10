@@ -17,19 +17,25 @@ class UsersController extends Controller {
     {
         //user
         $user=Auth::user();
-        $enterprise=$user->enterprise;
         $user->name= $request->input('name');
         $user->last_name=$request->input('lastName');
         $user->email=$request->input('email');
-        //$user->activity=$request->input('activity');
-        $user->save();
-        if($enterprise==NULL){
+        $user->activity=$request->input('activity');
+        /*if(isset($user->hasOne('App\enterprise')->id)){
+            $enterprise=$user->enterprise;
+            return 'tefre';
+        }
+        else{
             $enterprise=new \App\enterprise();    
-            $enterprise->user_id=$user->id;
+            $enterprise->user_id=$user->id;           
         }
         $enterprise->name=$request->input('enterpriseName');
         $enterprise->adress=$request->input('enterpriseAdress');
-        $enterprise->save();
+        $enterprise->save();*/
+        return $user->enterprise;
+        $user->enterprise->name=$request->input('enterpriseName');
+        $user->enterprise->adress=$request->input('enterpriseAdress');
+        $user->save();
         return view('pages.consult_user');
     }
     

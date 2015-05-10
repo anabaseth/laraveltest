@@ -49,15 +49,17 @@
                                                 <div class="panel-heading">Enterprise informations</div>
                                                 <div class="form-group">
                                                     {!! Form::label('Enterprise name') !!}
-                                                    {!! Form::text('enterpriseName', Auth::user()->enterpriseName(), 
+                                                    {!! Form::text('enterpriseName', Auth::user()->enterpriseName(),
                                                         array('required', 
-                                                              'class'=>'form-control' )) !!}
+                                                              'class'=>'form-control',  
+                                                              'placeholder'=>'Enter an enterprise name' )) !!}
                                                 </div>
                                                 <div class="form-group">
                                                     {!! Form::label('Enterprise Adress') !!}
-                                                    {!! Form::text('enterpriseAdress', Auth::user()->enterpriseAdress(), 
+                                                    {!! Form::text('enterpriseAdress', null, 
                                                         array('required', 
-                                                              'class'=>'form-control' )) !!}
+                                                              'class'=>'form-control',  
+                                                              'placeholder'=>'Enter an enterprise adress' )) !!}
                                                 </div>
 
                                                 <div class="form-group">
