@@ -35,29 +35,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return ($this->name).' '.($this->last_name);            
         }
         public function enterpriseName(){
-            if(isset($this->hasOne('App\enterprise')->name)) // Check that relation exists
-                return $this->hasOne('App\enterprise')->name;
+            if(isset($this->enterprise->name)) // Check that relation exists
+                return $this->enterprise->name;
             else
                 return NULL;
         }
         public function enterpriseAdress(){
-            if(isset($this->hasOne('App\enterprise')->adress)) // Check that relation exists
-                return $this->hasOne('App\enterprise')->adress;
+            if(isset($this->enterprise->adress)) // Check that relation exists
+                return $this->enterprise->adress;
             else
                 return NULL;
         }
         public function enterprise()
         {
-            if(isset($this->hasOne('App\enterprise'))){
-                return $this->hasOne('App\enterprise');
-            }          
-            else {
-                $enterprise= new enterprise();
-                $enterprise->name="name";
-                $enterprise->adress="adress";
-                $enterprise->id="id";
-                return $enterprise;
-            }
+           
+                return $this->hasOne('App\enterprise','id');
         }
 
 }

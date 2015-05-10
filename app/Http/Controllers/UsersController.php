@@ -21,21 +21,17 @@ class UsersController extends Controller {
         $user->last_name=$request->input('lastName');
         $user->email=$request->input('email');
         $user->activity=$request->input('activity');
-        /*if(isset($user->hasOne('App\enterprise')->id)){
-            $enterprise=$user->enterprise;
-            return 'tefre';
-        }
-        else{
-            $enterprise=new \App\enterprise();    
-            $enterprise->user_id=$user->id;           
+        $enterprise=$user->enterprise();
+        if(!isset($enterprise->id)){
+            $enterprise=\App\enterprise::firstOrcreate([/*'name'=>$request->input('enterpriseName'),'adress'=>$request->input('enterpriseAdress'),*/'user_id'=>$user->id]);
+            
         }
         $enterprise->name=$request->input('enterpriseName');
         $enterprise->adress=$request->input('enterpriseAdress');
-        $enterprise->save();*/
-        return $user->enterprise;
-        $user->enterprise->name=$request->input('enterpriseName');
-        $user->enterprise->adress=$request->input('enterpriseAdress');
+        //$user->enterprise->save();
         $user->save();
+        $user->enterprise()->save($enterprise);
+        //return $user->enterprise;
         return view('pages.consult_user');
     }
     

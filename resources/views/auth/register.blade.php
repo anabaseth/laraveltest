@@ -22,7 +22,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
+							<label class="col-md-4 control-label">First name</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 							</div>
@@ -38,7 +38,28 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="text" class="form-control" name="email" value="{{ old('email') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Activity</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="activity" value="{{ old('activity') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Enterprise name</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="enterpriseName" value="{{ old('enterpriseName') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Enterprise adress</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="enterpriseAdress" value="{{ old('enterpriseAdress') }}">
 							</div>
 						</div>
 

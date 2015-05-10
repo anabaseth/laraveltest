@@ -56,7 +56,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {!! Form::label('Enterprise Adress') !!}
-                                                    {!! Form::text('enterpriseAdress', null, 
+                                                    {!! Form::text('enterpriseAdress', Auth::user()->enterpriseAdress(), 
                                                         array('required', 
                                                               'class'=>'form-control',  
                                                               'placeholder'=>'Enter an enterprise adress' )) !!}
